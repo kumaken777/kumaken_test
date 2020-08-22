@@ -34,4 +34,4 @@ jobs:
         ls -la
         cat README.md
         sed 's|http://test.XX.XX.XX/api/|http://kumaken.co.jp/|g' README.md
-        cat README.md
+        # cat README.md
