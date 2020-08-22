@@ -36,4 +36,4 @@ jobs:
         echo test, and deploy your project.
         ls -la
         cat README.md
-        sed 's|$ORG_URL|$NEXT_URL|g' README.md
+        sed 's|${ORG_URL}|${NEXT_URL}|g' README.md
