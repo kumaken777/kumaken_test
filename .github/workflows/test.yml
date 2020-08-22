@@ -28,9 +28,12 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
+      env:
+        ORG_URL: http://test.XX.XX.XX/api/
+        NEXT_URL: http://kumaken.co.jp/
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
         ls -la
         cat README.md
-        sed 's|http://test.XX.XX.XX/api/|http://kumaken.co.jp/|g' README.md
+        sed 's|$ORG_URL|$NEXT_URL|g' README.md
