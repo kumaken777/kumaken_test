@@ -27,8 +27,8 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       env:
-        ORG_URL: 'http://test.XX.XX.XX/api/'
-        NEXT_URL: 'http://kumaken.co.jp/'
+        ORG_URL: http://test.XX.XX.XX/api/
+        NEXT_URL: http://kumaken.co.jp/
         API_DOC_PATH: api
         VERSION_REPLACEMENT_STRING: 0.1.0
       run: |
@@ -37,5 +37,5 @@ jobs:
         echo test, and deploy your project.
         ls -la
         cat $API_DOC_PATH/openapi.yml
-        sed 's|http://test.XX.XX.XX/api/|http://kumaken.co.jp/|g' $API_DOC_PATH/openapi.yml
-        sed "s/  version: $VERSION_REPLACEMENT_STRING/  version: v1.0.0/" $API_DOC_PATH/openapi.yml
+        sed -i "s|$ORG_URL|$NEXT_URL|g" $API_DOC_PATH/openapi.yml
+        sed -i "s/  version: $VERSION_REPLACEMENT_STRING/  version: v1.0.0/" $API_DOC_PATH/openapi.yml
