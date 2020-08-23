@@ -1,0 +1,28 @@
+openapi: 3.0.1
+
+info:
+  title: xxxxxxxxx
+  description: Api Document
+  contact:
+    email: xxxx@aaa.com
+  version: 0.1.0
+
+externalDocs:
+  description: Find out more about Swagger
+  url: https://kumaken-doc.dev.com/
+
+servers:
+  - url: http://test.XX.XX.XX/api/
+
+tags:
+  - name: test
+    description: test Api
+
+paths:
+  /test/kumaken:
+    get:
+      tags:
+        - User Flow
+      security:
+        - ApiKey: []
+      summary: test

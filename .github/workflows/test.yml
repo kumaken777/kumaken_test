@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,10 +29,13 @@ jobs:
       env:
         ORG_URL: 'http://test.XX.XX.XX/api/'
         NEXT_URL: 'http://kumaken.co.jp/'
+        API_DOC_PATH: api
+        VERSION_REPLACEMENT_STRING: 0.1.0
       run: |
         echo $ORG_URL , $NEXT_URL
         echo Add other actions to build,
         echo test, and deploy your project.
         ls -la
-        cat README.md
-        sed 's|http://test.XX.XX.XX/api/|http://kumaken.co.jp/|g' README.md
+        cat $API_DOC_PATH/openapi.yml
+        sed 's|http://test.XX.XX.XX/api/|http://kumaken.co.jp/|g' $API_DOC_PATH/openapi.yml
+        sed -i "s/  version: $VERSION_REPLACEMENT_STRING/  version: v1.0.0/" $API_DOC_PATH/openapi.yml
