@@ -39,3 +39,4 @@ jobs:
         cat $API_DOC_PATH/openapi.yml
         sed -i "s|$ORG_URL|$NEXT_URL|g" $API_DOC_PATH/openapi.yml
         sed -i "s/  version: $VERSION_REPLACEMENT_STRING/  version: v1.0.0/" $API_DOC_PATH/openapi.yml
+        cat $API_DOC_PATH/openapi.yml
